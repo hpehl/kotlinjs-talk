@@ -6,3 +6,5 @@
 document.body?.textContent = "Hello, ${greet()}"
 ```
 
+# JS Interop
+

@@ -11,7 +11,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test-js"))
+    implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation(npm("moment", "2"))
+    implementation(npm("tailwindcss", "2"))
 }
 
 kotlin {
@@ -19,11 +22,6 @@ kotlin {
         browser {
             commonWebpackConfig {
                 cssSupport.enabled = true
-            }
-            testTask {
-                useKarma {
-                    useChromeHeadless()
-                }
             }
             binaries.executable()
         }
