@@ -1,0 +1,5 @@
+*.xmind
+.gradle
+.idea
+build
+work
