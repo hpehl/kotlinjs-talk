@@ -5,9 +5,8 @@ import react.RBuilder
 import react.RComponent
 import react.RProps
 import react.RState
-import styled.css
-import styled.styledDiv
-import styled.styledInput
+import react.dom.div
+import react.dom.input
 
 external interface WelcomeProps : RProps {
     var name: String
@@ -23,16 +22,10 @@ class Welcome(props: WelcomeProps) : RComponent<WelcomeProps, WelcomeState>(prop
     }
 
     override fun RBuilder.render() {
-        styledDiv {
-            css {
-                +WelcomeStyles.textContainer
-            }
+        div {
             +"Hello, ${state.name}"
         }
-        styledInput {
-            css {
-                +WelcomeStyles.textInput
-            }
+        input {
             attrs {
                 type = InputType.text
                 value = state.name
