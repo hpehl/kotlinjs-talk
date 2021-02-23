@@ -1,6 +1,6 @@
 # Kotlin/JS Talk - Ecosystem
 
-Uses serialization, HTML DSL and Ktor client to get a user from https://randomuser.me/.  
+Uses serialization, typesafe HTML and Ktor client to get and show a random user from https://randomuser.me/.  
 
 ## Run
 

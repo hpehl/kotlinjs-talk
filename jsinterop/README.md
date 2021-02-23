@@ -1,6 +1,6 @@
 # Kotlin/JS Talk - JavaScript Interoperability
 
-Example which shows how to use and interact with the dependencies from the JavaScript ecosystem. Uses [tailwindcss](https://tailwindcss.com/) and [moment.js](https://momentjs.com/).
+Shows how to use and interact with dependencies from the JavaScript ecosystem.
 
 ## Run
 

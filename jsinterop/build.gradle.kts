@@ -12,14 +12,13 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation(npm("moment", "2"))
-    implementation(npm("tailwindcss", "2"))
+    implementation(npm("camelcase", "6.2.0", generateExternals = true))
 }
 
 kotlin {
     js {
         browser {
+            useCommonJs()
             commonWebpackConfig {
                 cssSupport.enabled = true
             }

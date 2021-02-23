@@ -1,6 +1,6 @@
 # Getting Started
 
-## Kotlin
+## Code
 
 ```kotlin
 document.body?.textContent = "Hello, ${greet()}"
@@ -8,13 +8,23 @@ document.body?.textContent = "Hello, ${greet()}"
 
 # Ecosystem
 
+## Gradle
+
+```kotlin
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.2")
+implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
+implementation("io.ktor:ktor-client-core:1.5.1")
+implementation("io.ktor:ktor-client-serialization:1.5.1")
+```
+
 ## HTML
 
 ```html
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 ```
 
-## Kotlin
+## Code
 
 ### User
 
@@ -68,7 +78,34 @@ div(classes = "min-h-screen bg-gray-800 flex flex-col justify-center") {
 
 # JS Interop
 
-pending
+## Gradle
+
+```kotlin
+implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.2")
+implementation(npm("camelcase", "6.2.0", generateExternals = true))
+...
+useCommonJs()
+```
+
+## Code
+
+```kotlin
+main(classes = "center") {
+    section(classes = "in-out") {
+        input(classes = "in") {
+            autoFocus = true
+            type = text
+            placeholder = "in"
+            onKeyUpFunction = {
+                val input = (it.target as HTMLInputElement).value
+                document.querySelector(".out")?.textContent = camelcase(input).ifEmpty { "n/a" }
+            }
+        }
+        div(classes = "down") { +"⇓" }
+        output(classes = "out") { +"n/a" }
+    }
+}
+```
 
 # React
 
