@@ -1,6 +1,6 @@
 # Kotlin/JS Talk - Getting Started
 
-Very simple hello world example.
+Sets the text content of the document's body to 'Hello world'.
 
 ## Run
 
