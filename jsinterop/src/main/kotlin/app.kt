@@ -4,7 +4,7 @@ import kotlinx.html.div
 import kotlinx.html.dom.append
 import kotlinx.html.input
 import kotlinx.html.js.main
-import kotlinx.html.js.onKeyUpFunction
+import kotlinx.html.js.onInputFunction
 import kotlinx.html.output
 import kotlinx.html.section
 import org.w3c.dom.HTMLInputElement
@@ -17,8 +17,8 @@ fun main() {
                     autoFocus = true
                     type = text
                     placeholder = "in"
-                    onKeyUpFunction = {
-                        val input = (it.target as HTMLInputElement).value
+                    onInputFunction = { event ->
+                        val input = (event.target as HTMLInputElement).value
                         document.querySelector(".out")?.textContent = camelcase(input).ifEmpty { "n/a" }
                     }
                 }

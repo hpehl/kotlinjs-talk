@@ -96,8 +96,8 @@ main(classes = "center") {
             autoFocus = true
             type = text
             placeholder = "in"
-            onKeyUpFunction = {
-                val input = (it.target as HTMLInputElement).value
+            onInputFunction = { event ->
+                val input = (event.target as HTMLInputElement).value
                 document.querySelector(".out")?.textContent = camelcase(input).ifEmpty { "n/a" }
             }
         }
@@ -113,5 +113,82 @@ pending
 
 # PatternFly
 
-pending
+## Gradle
+
+```kotlin
+maven("https://oss.jfrog.org/artifactory/jfrog-dependencies")
+maven("https://dl.bintray.com/patternfly-kotlin/patternfly-fritz2")
+...
+implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
+implementation("io.ktor:ktor-client-core:1.5.1")
+implementation("io.ktor:ktor-client-serialization:1.5.1")
+implementation("dev.fritz2:core:0.8")
+implementation("org.patternfly:patternfly-fritz2:0.2.0")
+implementation(npm("@patternfly/patternfly", "4"))
+implementation(devNpm("file-loader", "6.2.0"))
+```
+
+## Code
+
+### User
+
+```kotlin
+val userStore = ItemsStore<User> { it.login.uuid }
+```
+
+### Client
+
+```kotlin
+const val URL = "https://randomuser.me/api/"
+
+val client = HttpClient(Js) {
+    install(JsonFeature) {
+        serializer = KotlinxSerializer(Json {
+            ignoreUnknownKeys = true
+            isLenient = true
+        })
+    }
+}
+
+suspend fun randomUsers(size: Int): List<User> =
+    client.get<RandomUsers>("$URL?results=$size").results
+```
+
+### App
+
+```kotlin
+external fun require(name: String): dynamic
+...
+require("@patternfly/patternfly/patternfly.css")
+require("@patternfly/patternfly/patternfly-addons.css")
+...
+page {
+    pageHeader {
+        brand {
+            link {
+                href("#")
+            }
+            img {
+                src("./logo.svg")
+            }
+        }
+        pageHeaderTools {
+            pageHeaderToolsItem {
+                notificationBadge()
+            }
+        }
+    }
+    pageMain {
+        pageSection(baseClass = "light".modifier()) {
+            toolbar()
+            cardView()
+        }
+    }
+}
+...
+MainScope().launch {
+    userStore.addAll(randomUsers(73))
+}
+```
 
