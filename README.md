@@ -19,7 +19,8 @@ Code samples are divided into the following independent projects. The projects a
 2. [ecosystem](ecosystem/README.md)
 3. [jsinterop](jsinterop/README.md)
 4. [react](react/README.md)
-5. [patternfly](patternfly/README.md)
+5. [fritz2](fritz2/README.md)
+6. [patternfly](patternfly/README.md)
 
 In case you're wondering about the Gradle project names, they all start with  `kjst-` which stands for **K**otlin/**JS** **t**alk. 
 

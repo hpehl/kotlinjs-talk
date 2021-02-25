@@ -111,6 +111,10 @@ main(classes = "center") {
 
 pending
 
+# Fritz2
+
+pending
+
 # PatternFly
 
 ## Gradle

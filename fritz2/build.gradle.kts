@@ -6,21 +6,21 @@ group = "com.redhat.kotlinjs"
 version = "0.0.1"
 
 repositories {
-    jcenter()
+    mavenLocal()
     mavenCentral()
+    maven("https://oss.jfrog.org/artifactory/jfrog-dependencies")
+    maven("https://dl.bintray.com/patternfly-kotlin/patternfly-fritz2")
+    jcenter()
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlinx:kotlinx-html:0.7.2")
-    implementation(npm("camelcase", "6.2.0", generateExternals = true))
+    implementation("dev.fritz2:core:0.8")
+    implementation(npm("tailwindcss", "2.0.3"))
 }
 
 kotlin {
     js {
         browser {
-            // Don't use default (UMD)
-            // https://youtrack.jetbrains.com/issue/KT-39941
-            useCommonJs()
             commonWebpackConfig {
                 cssSupport.enabled = true
             }

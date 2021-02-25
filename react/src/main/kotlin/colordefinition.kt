@@ -14,7 +14,7 @@ enum class Color {
     YELLOW, RED, GREEN, BLUE, INDIGO, PURPLE
 }
 
-data class ColorDefinition(val color: Color, val level: Int) : RState {
+data class ColorDefinition(val color: Color, val level: Int) {
     override fun toString(): String = "${color.name.toLowerCase()}-$level"
 }
 
