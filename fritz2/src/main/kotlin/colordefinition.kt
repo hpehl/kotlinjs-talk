@@ -16,7 +16,9 @@ data class ColorDefinition(val color: Color, val level: Int) {
 
 class ColorDefinitionStore : RootStore<ColorDefinition>(ColorDefinition(YELLOW, 400)) {
 
-    val background: Flow<String> = data.map { "bg-${it.color.name.toLowerCase()}-${it.level}" }
+    val background: Flow<String> = data.map {
+        "bg-${it.color.name.toLowerCase()}-${it.level}"
+    }
 
     val changeColor: Handler<Color> = handle { cd, color ->
         cd.copy(color = color)
