@@ -13,7 +13,7 @@ The slides are available at [slides.pdf](slides.pdf).
 
 ## Examples
 
-Code samples are divided into the following independent projects. The projects are self contained and can be used as-is. Each project includes a short readme how to get started.  
+Code samples are divided into the following independent projects. The projects are self contained and can be used as-is. Each project includes a short readme and how to get started.
 
 1. [getting-started](getting-started/README.md)
 2. [ecosystem](ecosystem/README.md)
