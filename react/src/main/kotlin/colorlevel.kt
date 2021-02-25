@@ -29,7 +29,7 @@ class ColorLevelComponent : RComponent<ColorLevelProps, RState>() {
                     step = "100"
                     value = props.currentLevel.toString()
                     onChangeFunction = { event ->
-                        val level = (event.target as HTMLInputElement).value.toIntOrNull() ?: props.min
+                        val level = (event.target as HTMLInputElement).value.toInt()
                         props.onSelectLevel(level)
                     }
                 }
