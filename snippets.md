@@ -109,13 +109,26 @@ main(classes = "center") {
 
 # React
 
-pending
+## Gradle
+
+```kotlin
+maven { url = uri("https://dl.bintray.com/kotlin/kotlin-js-wrappers") }
+...
+implementation("org.jetbrains:kotlin-react:17.0.1-pre.148-kotlin-1.4.21")
+implementation("org.jetbrains:kotlin-react-dom:17.0.1-pre.148-kotlin-1.4.21")
+implementation("org.jetbrains:kotlin-styled:5.2.1-pre.148-kotlin-1.4.21")
+```
+
+## Code
+
+```kotlin
+fun RBuilder.colorName(handler: ColorNameProps.() -> Unit): ReactElement =
+    child(ColorNameComponent::class) {
+        attrs(handler)
+    }
+```
 
 # Fritz2
-
-pending
-
-# PatternFly
 
 ## Gradle
 
@@ -123,76 +136,19 @@ pending
 maven("https://oss.jfrog.org/artifactory/jfrog-dependencies")
 maven("https://dl.bintray.com/patternfly-kotlin/patternfly-fritz2")
 ...
-implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
-implementation("io.ktor:ktor-client-core:1.5.1")
-implementation("io.ktor:ktor-client-serialization:1.5.1")
 implementation("dev.fritz2:core:0.8")
-implementation("org.patternfly:patternfly-fritz2:0.2.0")
-implementation(npm("@patternfly/patternfly", "4"))
-implementation(devNpm("file-loader", "6.2.0"))
 ```
 
 ## Code
 
-### User
-
 ```kotlin
-val userStore = ItemsStore<User> { it.login.uuid }
-```
+class ColorDefinitionStore : RootStore<ColorDefinition>(ColorDefinition(YELLOW, 400)) {
 
-### Client
+    val background: Flow<String> = data.map { "bg-${it.color.name.toLowerCase()}-${it.level}" }
 
-```kotlin
-const val URL = "https://randomuser.me/api/"
-
-val client = HttpClient(Js) {
-    install(JsonFeature) {
-        serializer = KotlinxSerializer(Json {
-            ignoreUnknownKeys = true
-            isLenient = true
-        })
+    val changeColor: Handler<Color> = handle { cd, color ->
+        cd.copy(color = color)
     }
-}
-
-suspend fun randomUsers(size: Int): List<User> =
-    client.get<RandomUsers>("$URL?results=$size").results
-```
-
-### App
-
-```kotlin
-external fun require(name: String): dynamic
-...
-require("@patternfly/patternfly/patternfly.css")
-require("@patternfly/patternfly/patternfly-addons.css")
-...
-page {
-    pageHeader {
-        brand {
-            link {
-                href("#")
-            }
-            img {
-                src("./logo.svg")
-            }
-        }
-        pageHeaderTools {
-            pageHeaderToolsItem {
-                notificationBadge()
-            }
-        }
-    }
-    pageMain {
-        pageSection(baseClass = "light".modifier()) {
-            toolbar()
-            cardView()
-        }
-    }
-}
-...
-MainScope().launch {
-    userStore.addAll(randomUsers(73))
 }
 ```
 
