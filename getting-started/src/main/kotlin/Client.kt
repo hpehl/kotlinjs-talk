@@ -1,7 +1,7 @@
 import kotlinx.browser.document
 
 fun main() {
-    val message = "Hallo ${greet()}!"
+    val message = "Hello ${greet()}!"
     document.body?.textContent = message
 }
 
