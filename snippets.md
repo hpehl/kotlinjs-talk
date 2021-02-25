@@ -105,6 +105,10 @@ main(classes = "center") {
         output(classes = "out") { +"n/a" }
     }
 }
+...
+val options = js("{}").unsafeCast<Options>().apply {
+    pascalCase = true
+}
 ```
 
 # React
