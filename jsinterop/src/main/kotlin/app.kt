@@ -19,7 +19,8 @@ fun main() {
                     placeholder = "in"
                     onInputFunction = { event ->
                         val input = (event.target as HTMLInputElement).value
-                        document.querySelector(".out")?.textContent = camelcase(input).ifEmpty { "n/a" }
+                        document.querySelector(".out")?.textContent =
+                            camelcase(input).ifEmpty { "n/a" }
                     }
                 }
                 div(classes = "down") { +"⇓" }
