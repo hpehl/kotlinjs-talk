@@ -1,6 +1,6 @@
 # Kotlin/JS Talk - React
 
-Uses fritz2 stores and handlers to select a color defined by [tailwind CSS](https://tailwindcss.com/).  
+Uses [fritz2](https://www.fritz2.dev/) stores and handlers to select a color defined by [tailwind CSS](https://tailwindcss.com/).  
 
 ## Run
 
