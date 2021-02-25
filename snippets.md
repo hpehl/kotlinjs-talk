@@ -156,3 +156,8 @@ class ColorDefinitionStore : RootStore<ColorDefinition>(ColorDefinition(YELLOW, 
 }
 ```
 
+## Shell
+
+```bash
+cloc --include-lang=Kotlin .
+```
