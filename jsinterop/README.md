@@ -1,6 +1,6 @@
 # Kotlin/JS Talk - JavaScript Interoperability
 
-Shows how to use and interact with dependencies from the JavaScript ecosystem.
+Shows how to use and interact with the [camelcase](https://ktor.io/docs/client.html) JS library.
 
 ## Run
 
