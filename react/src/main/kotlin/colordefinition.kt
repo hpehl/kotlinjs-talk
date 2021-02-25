@@ -36,7 +36,7 @@ class ColorDefinitionComponent : RComponent<RProps, ColorDefinitionState>() {
                     "flex-col",
                     "justify-center",
                     "h-full",
-                    "bg-${state.colorDefinition}"
+                    "bg-${state.colorDefinition}" // bg-yellow-400
                 )
             }
             div(classes = "w-1/4 mx-auto bg-gray-500 text-gray-200 p-5 rounded-lg text-center") {
