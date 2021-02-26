@@ -7,13 +7,14 @@ Slides and code of my Kotlin/JS talk. The talk gives an introduction into Kotlin
 - Kotlin/JS ecosystem
 - JavaScript interoperability
 - React
-- Fritz2 & PatternFly
+- Fritz2
+- PatternFly Fritz2
 
 The slides are available at [slides.pdf](slides.pdf).
 
-## Examples
+## Code Samples
 
-Code samples are divided into the following independent projects. The projects are self contained and can be used as-is. Each project includes a short readme and how to get started.
+There's a code sample for most of the topics. The samples are independent, self contained and can be used as-is. Each project includes a short readme and how to get started.
 
 1. [getting-started](getting-started/README.md)
 2. [ecosystem](ecosystem/README.md)
@@ -22,4 +23,3 @@ Code samples are divided into the following independent projects. The projects a
 5. [fritz2](fritz2/README.md)
 
 In case you're wondering about the Gradle project names, they all start with  `kjst-` which stands for **K**otlin/**JS** **t**alk. 
-
